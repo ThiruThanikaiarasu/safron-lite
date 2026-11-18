@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/css/saffron.css",
+      "PackagePath": "staticwebassets/assets/css/saffron.css"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/js/glucose-entry.js",
+      "PackagePath": "staticwebassets/assets/js/glucose-entry.js"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/js/patient-detail.js",
+      "PackagePath": "staticwebassets/assets/js/patient-detail.js"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/css/bootstrap-theme.min.css",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/css/bootstrap-theme.min.css"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/bootstrap-3.4.1/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/assets/vendor/bootstrap-3.4.1/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/synthetix/new/prj-28cefab8a275/App/wwwroot/assets/vendor/jquery-3.5.1.min.js",
+      "PackagePath": "staticwebassets/assets/vendor/jquery-3.5.1.min.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Saffron.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Saffron.props",
+      "PackagePath": "build\\Saffron.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Saffron.props",
+      "PackagePath": "buildMultiTargeting\\Saffron.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Saffron.props",
+      "PackagePath": "buildTransitive\\Saffron.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
