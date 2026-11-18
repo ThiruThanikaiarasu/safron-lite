@@ -1,0 +1,11 @@
+/synthetix/new/safron-lite/rules/Saffron.Rules/bin/Debug/net8.0/Saffron.Rules.deps.json
+/synthetix/new/safron-lite/rules/Saffron.Rules/bin/Debug/net8.0/Saffron.Rules.dll
+/synthetix/new/safron-lite/rules/Saffron.Rules/bin/Debug/net8.0/Saffron.Rules.pdb
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.GeneratedMSBuildEditorConfig.editorconfig
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.AssemblyInfoInputs.cache
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.AssemblyInfo.cs
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.csproj.CoreCompileInputs.cache
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.dll
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/refint/Saffron.Rules.dll
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/Saffron.Rules.pdb
+/synthetix/new/safron-lite/rules/Saffron.Rules/obj/Debug/net8.0/ref/Saffron.Rules.dll
