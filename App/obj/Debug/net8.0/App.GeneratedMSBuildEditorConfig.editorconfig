@@ -1,0 +1,51 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Saffron
+build_property.RootNamespace = Saffron
+build_property.ProjectDir = /synthetix/new/prj-28cefab8a275/App/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /synthetix/new/prj-28cefab8a275/App
+build_property._RazorSourceGeneratorDebug = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Care/GlucoseEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FyZS9HbHVjb3NlRW50cnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Care/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FyZS9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Care/PatientDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FyZS9QYXRpZW50RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Care/PatientList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FyZS9QYXRpZW50TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Shared/ErrorPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/synthetix/new/prj-28cefab8a275/App/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
