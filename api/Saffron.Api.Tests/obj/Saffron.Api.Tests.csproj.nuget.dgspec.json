@@ -1,0 +1,145 @@
+{
+  "format": 1,
+  "restore": {
+    "/synthetix/new/safron-lite/api/Saffron.Api.Tests/Saffron.Api.Tests.csproj": {}
+  },
+  "projects": {
+    "/synthetix/new/safron-lite/api/Saffron.Api.Tests/Saffron.Api.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/synthetix/new/safron-lite/api/Saffron.Api.Tests/Saffron.Api.Tests.csproj",
+        "projectName": "Saffron.Api.Tests",
+        "projectPath": "/synthetix/new/safron-lite/api/Saffron.Api.Tests/Saffron.Api.Tests.csproj",
+        "packagesPath": "/home/worker/.nuget/packages/",
+        "outputPath": "/synthetix/new/safron-lite/api/Saffron.Api.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/worker/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/synthetix/new/safron-lite/api/Saffron.Api/Saffron.Api.csproj": {
+                "projectPath": "/synthetix/new/safron-lite/api/Saffron.Api/Saffron.Api.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.11.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/synthetix/platform/toolchains/mise/data/installs/dotnet/8.0.428/sdk/8.0.428/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/synthetix/new/safron-lite/api/Saffron.Api/Saffron.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/synthetix/new/safron-lite/api/Saffron.Api/Saffron.Api.csproj",
+        "projectName": "Saffron.Api",
+        "projectPath": "/synthetix/new/safron-lite/api/Saffron.Api/Saffron.Api.csproj",
+        "packagesPath": "/home/worker/.nuget/packages/",
+        "outputPath": "/synthetix/new/safron-lite/api/Saffron.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/worker/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/synthetix/platform/toolchains/mise/data/installs/dotnet/8.0.428/sdk/8.0.428/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
