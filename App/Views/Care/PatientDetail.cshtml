@@ -1,0 +1,110 @@
+@using System.Globalization
+@model Saffron.Models.PatientDetailViewModel
+@{
+    var tenant = (TenantInfo)ViewData["Tenant"]!;
+    var patient = Model.Patient;
+    var pid = patient.PatientId;
+    var name = PhpCompat.PatientName(patient.LastName, patient.FirstName);
+    var dob = patient.DateOfBirth.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+    var summary = Model.Summary;
+    var order = summary?.Order;
+    var mean = summary?.Recent.Mean;
+    var meanText = mean.HasValue ? ((int)mean.Value).ToString(CultureInfo.InvariantCulture) : PhpCompat.Mdash;
+    var minutesText = summary?.MinutesSinceLastReading is int minutes ? minutes.ToString(CultureInfo.InvariantCulture) : PhpCompat.Mdash;
+    var averageText = Model.Average is int average ? average.ToString(CultureInfo.InvariantCulture) : PhpCompat.Mdash;
+}
+<ol class="breadcrumb">
+	<li><a href="/care/patients">Patients</a></li>
+	<li class="active">@name</li>
+</ol>
+
+@if (Model.SavedReadingId.HasValue)
+{
+	<div class="alert alert-success" id="saved-msg">Reading #@Model.SavedReadingId saved.</div>
+}
+
+<div class="page-header patient-header">
+	<h3 id="patient-name">@name
+		<small>MRN @patient.Mrn &middot; @patient.UnitCode bed @patient.Bed &middot; DOB @dob</small>
+	</h3>
+	<a class="btn btn-primary" id="btn-enter-glucose" href="/care/patients/@pid/glucose">Enter glucose</a>
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<div class="panel panel-default" id="order-summary">
+			<div class="panel-heading">Order summary</div>
+			@if (summary == null)
+			{
+				<div class="panel-body text-danger">Order information is not available.</div>
+			}
+			else if (order == null)
+			{
+				<div class="panel-body">No infusion order on file.</div>
+			}
+			else
+			{
+				<table class="table table-condensed">
+					<tr><th>Status</th><td id="order-status">@order.Status</td></tr>
+					<tr><th>Base rate</th><td>@PhpCompat.FloatText(order.BaseRate) units/h</td></tr>
+					<tr><th>Target</th><td>@order.TargetValue.ToString(CultureInfo.InvariantCulture)</td></tr>
+					<tr><th>Multiplier / divisor</th><td>@PhpCompat.FloatText(order.Multiplier) / @PhpCompat.FloatText(order.Divisor)</td></tr>
+					<tr><th>Ordered</th><td>@Html.Raw(PhpCompat.LocalTimeFromIso(order.OrderedAtUtc, tenant)) by @order.OrderedBy</td></tr>
+					@if (!string.IsNullOrEmpty(order.DiscontinuedAtUtc))
+					{
+						<tr><th>Discontinued</th><td>@Html.Raw(PhpCompat.LocalTimeFromIso(order.DiscontinuedAtUtc, tenant))</td></tr>
+					}
+					<tr><th>Mean (last 6)</th><td id="summary-mean">@Html.Raw(meanText)</td></tr>
+					<tr><th>Minutes since last reading</th><td id="summary-minutes">@Html.Raw(minutesText)</td></tr>
+				</table>
+				@if (Model.IsAdmin)
+				{
+					<div class="panel-footer">
+						@if (order.Status == "Active")
+						{
+							<button type="button" class="btn btn-danger btn-sm" id="btn-discontinue" data-order-id="@order.OrderId">Discontinue order</button>
+						}
+						else
+						{
+							<button type="button" class="btn btn-default btn-sm" id="btn-resume" data-order-id="@order.OrderId">Resume order</button>
+						}
+					</div>
+				}
+			}
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<div class="panel panel-default">
+			<div class="panel-heading">Glucose history <small class="text-muted">(facility time)</small></div>
+			<table class="table table-condensed table-striped" id="glucose-history">
+				<thead>
+					<tr><th>Time</th><th>Value</th><th></th><th>Rate</th><th>Entered by</th><th>Comment</th></tr>
+				</thead>
+				<tbody>
+				@foreach (var h in Model.History)
+				{
+					<tr data-reading-id="@h.ReadingId" class="@(h.IsLow ? "danger" : null)">
+						<td>@Html.Raw(PhpCompat.LocalTimeFromIso(h.TakenAtUtc, tenant))</td>
+						<td class="reading-value">@h.Value.ToString(CultureInfo.InvariantCulture)</td>
+						<td>@if (h.IsLow)
+						{
+							<span class="label label-danger">LOW</span>
+						}</td>
+						<td class="reading-rate">@Html.Raw(PhpCompat.FmtRate(h.Rate))</td>
+						<td>@h.EnteredBy</td>
+						<td>@h.Comment</td>
+					</tr>
+				}
+				@if (!Model.History.Any())
+				{
+					<tr><td colspan="6" class="text-muted">No readings.</td></tr>
+				}
+				</tbody>
+				<tfoot>
+					<tr><th colspan="2">Average of last 6</th><td colspan="4" id="history-average">@Html.Raw(averageText)</td></tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div>
