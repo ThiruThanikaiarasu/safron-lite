@@ -1,0 +1,122 @@
+@using Microsoft.AspNetCore.Html
+@using Saffron.Services
+@model Saffron.Models.GlucoseEntryViewModel
+@{
+    var patient = Model.Patient;
+    var pid = patient.PatientId;
+    var name = PhpCompat.PatientName(patient.LastName, patient.FirstName);
+    var rec = Model.Recommendation;
+    var locked = rec != null;
+    var action = locked ? "save" : "preview";
+    var form = Model.Form;
+    var ro = locked ? new HtmlString(" readonly") : HtmlString.Empty;
+    var ackLowChecked = form.AckLow ? new HtmlString(" checked=\"checked\"") : HtmlString.Empty;
+    var lowClass = rec is { LowGlucose: true } ? "alert alert-danger" : "alert alert-danger hidden";
+    var apiLow = rec is { LowGlucose: true } ? "1" : "0";
+}
+<ol class="breadcrumb">
+	<li><a href="/care/patients">Patients</a></li>
+	<li><a href="/care/patients/@pid">@name</a></li>
+	<li class="active">Glucose entry</li>
+</ol>
+
+<h3>Glucose entry <small>@name &middot; MRN @patient.Mrn &middot; @patient.UnitCode bed @patient.Bed</small></h3>
+
+@if (Model.ValidationErrors.Count > 0)
+{
+	<div class="alert alert-danger" id="form-errors"><ul>@foreach (var error in Model.ValidationErrors)
+	{
+		<li>@error</li>
+	}</ul></div>
+}
+@if (!string.IsNullOrEmpty(Model.ApiError))
+{
+	<div class="alert alert-danger" id="api-error">@Model.ApiError</div>
+}
+
+<form method="post" id="entry-form" class="form-horizontal" action="/care/glucose/@action/@pid">
+
+	<fieldset>
+		<legend>1. Reading</legend>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="value">Glucose value</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="value" name="value" value="@form.Value" autocomplete="off"@ro>
+			</div>
+			<div class="col-sm-6 help-block">mg/dL, 20&ndash;600</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="confirm_value">Confirm value</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="confirm_value" name="confirm_value" value="@form.ConfirmValue" autocomplete="off"@ro>
+			</div>
+			<div class="col-sm-6 help-block text-danger hidden" id="confirm-help">Values do not match.</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="entered_time">Time taken</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="entered_time" name="entered_time" placeholder="HH:MM" value="@form.EnteredTime"@ro>
+			</div>
+			<div class="col-sm-6 help-block">Optional. Facility time, today. Leave blank for now.</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="comment">Comment</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" id="comment" name="comment" rows="2" maxlength="200"@ro>@form.Comment</textarea>
+			</div>
+		</div>
+	</fieldset>
+
+	<div id="low-panel" class="@lowClass">
+		<strong>Low glucose.</strong> Hold the infusion and follow the low glucose procedure.
+		<div class="checkbox">
+			<label><input type="checkbox" class="ack" id="ack_low" name="ack_low" value="1"@ackLowChecked> Provider has been notified</label>
+		</div>
+	</div>
+
+	@if (rec != null)
+	{
+		<fieldset id="recommendation">
+			<legend>2. Recommendation</legend>
+			<div class="row">
+				<div class="col-sm-offset-3 col-sm-6">
+					<p class="lead">Infusion rate: <strong id="rec-rate">@rec.RateText</strong> units/h</p>
+					@if (rec.Messages.Count > 0)
+					{
+						<ul id="rec-messages" class="list-unstyled">
+							@foreach (var message in rec.Messages)
+							{
+								<li class="text-warning"><span class="glyphicon glyphicon-exclamation-sign"></span> @message</li>
+							}
+						</ul>
+					}
+					<p class="text-muted">Next check due: <span id="rec-next-due">@rec.NextDueLocal</span></p>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset id="acknowledgements">
+			<legend>3. Confirm</legend>
+			<div class="col-sm-offset-3">
+				<div class="checkbox"><label><input type="checkbox" class="ack" id="ack_identity" name="ack_identity" value="1"> Patient identity checked against wristband</label></div>
+				<div class="checkbox"><label><input type="checkbox" class="ack" id="ack_value" name="ack_value" value="1"> Value double-checked</label></div>
+			</div>
+		</fieldset>
+		<input type="hidden" id="api_low" name="api_low" value="@apiLow">
+	}
+
+	<div class="form-group entry-buttons">
+		<div class="col-sm-offset-3 col-sm-9">
+			@if (locked)
+			{
+				<button type="submit" class="btn btn-success" id="btn-save" disabled>Save reading</button>
+				<a class="btn btn-default" href="/care/patients/@pid/glucose">Start over</a>
+			}
+			else
+			{
+				<button type="submit" class="btn btn-primary" id="btn-preview">Get recommendation</button>
+				<a class="btn btn-link" href="/care/patients/@pid">Cancel</a>
+			}
+		</div>
+	</div>
+</form>
