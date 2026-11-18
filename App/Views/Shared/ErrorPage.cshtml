@@ -1,0 +1,20 @@
+@model Saffron.Models.ErrorPageModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Saffron - @Model.Heading</title>
+<link rel="stylesheet" href="/care/assets/vendor/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="alert alert-warning text-center" style="margin:0;border-radius:0">@CareText.Banner</div>
+<div class="container" style="margin-top:30px">
+	<h2>@Model.Heading</h2>
+	<div class="well">@Model.Message</div>
+	<a href="/care/">Back to patient list</a>
+</div>
+</body>
+</html>
