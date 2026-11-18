@@ -1,0 +1,19 @@
+@model IReadOnlyList<Saffron.Services.PatientListItem>
+<h3>Patients</h3>
+<table class="table table-condensed table-striped" id="patient-list">
+	<thead>
+		<tr><th>Unit</th><th>Bed</th><th>Name</th><th>MRN</th><th></th></tr>
+	</thead>
+	<tbody>
+	@foreach (var p in Model)
+	{
+		<tr data-patient-id="@p.PatientId">
+			<td>@p.Unit</td>
+			<td>@p.Bed</td>
+			<td><a href="/care/patients/@p.PatientId">@p.Name</a></td>
+			<td>@p.Mrn</td>
+			<td><a class="btn btn-xs btn-default" href="/care/patients/@p.PatientId/glucose">Glucose</a></td>
+		</tr>
+	}
+	</tbody>
+</table>
