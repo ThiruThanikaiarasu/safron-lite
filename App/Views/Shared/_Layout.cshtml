@@ -1,0 +1,46 @@
+@{
+    var tenant = (TenantInfo)ViewData["Tenant"]!;
+    var user = ViewData["User"] as SessionInfo;
+    var scripts = ViewData["Scripts"] as IEnumerable<string> ?? Array.Empty<string>();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saffron - @ViewData["Title"]</title>
+<link rel="stylesheet" href="/care/assets/vendor/bootstrap-3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/care/assets/css/saffron.css">
+</head>
+<body data-tenant="@tenant.Code">
+<div id="sample-banner" class="sample-banner">@CareText.Banner</div>
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/care/patients">Saffron <small>@tenant.DisplayName</small></a>
+		</div>
+		@if (user != null)
+		{
+			<p class="navbar-text navbar-right">
+				<span id="current-user">@user.DisplayName</span>
+				(<span id="current-role">@user.Role</span>)
+				&nbsp;<a class="navbar-link" href="/care/logout">Log out</a>
+			</p>
+		}
+	</div>
+</nav>
+<div class="container">
+@RenderBody()
+</div>
+<footer class="container text-muted small saffron-footer">
+	@CareText.Banner &middot; Saffron care 4.2
+</footer>
+<script src="/care/assets/vendor/jquery-3.5.1.min.js"></script>
+<script src="/care/assets/vendor/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+@foreach (var script in scripts)
+{
+	<script src="/care/assets/js/@script"></script>
+}
+</body>
+</html>
