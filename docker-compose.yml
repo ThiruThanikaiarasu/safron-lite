@@ -1,0 +1,82 @@
+name: saffron-lite
+
+x-db-secrets: &db-secrets
+  MSSQL_SA_PASSWORD: ${SAFFRON_SA_PASSWORD:-Saffr0n!Sample-sa}
+  SAFFRON_APP_PASSWORD: ${SAFFRON_APP_PASSWORD:-Saffr0n!Sample-app}
+
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      <<: *db-secrets
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_MEMORY_LIMIT_MB: "2048"
+      TZ: Asia/Tokyo
+    ports:
+      - "127.0.0.1:14339:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' -b -o /dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+      start_period: 15s
+
+  sql-init:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    entrypoint: ["/bin/bash", "/db/init.sh"]
+    environment:
+      <<: *db-secrets
+      SAFFRON_DB_HOST: sql
+      SAFFRON_RESET: ${SAFFRON_RESET:-0}
+    volumes:
+      - ./db:/db:ro
+    depends_on:
+      sql:
+        condition: service_healthy
+    restart: "no"
+
+  redis:
+    image: redis:6.2-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports:
+      - "127.0.0.1:16379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: App/Dockerfile
+    environment:
+      SAFFRON_CATALOG: "Server=sql,1433;Database=SaffronCatalog;User Id=saffron_app;Password=${SAFFRON_APP_PASSWORD:-Saffr0n!Sample-app};TrustServerCertificate=True"
+      SAFFRON_REDIS: "redis:6379"
+    depends_on:
+      sql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/api/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+
+  proxy:
+    image: nginx:1.24-alpine
+    ports:
+      - "8095:80"
+    volumes:
+      - ./proxy:/etc/nginx/conf.d:ro
+    depends_on:
+      app:
+        condition: service_healthy
+
+volumes:
+  sqldata:
