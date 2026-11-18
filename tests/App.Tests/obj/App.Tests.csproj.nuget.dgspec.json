@@ -1,0 +1,162 @@
+{
+  "format": 1,
+  "restore": {
+    "/synthetix/new/prj-28cefab8a275/tests/App.Tests/App.Tests.csproj": {}
+  },
+  "projects": {
+    "/synthetix/new/prj-28cefab8a275/App/App.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/synthetix/new/prj-28cefab8a275/App/App.csproj",
+        "projectName": "Saffron",
+        "projectPath": "/synthetix/new/prj-28cefab8a275/App/App.csproj",
+        "packagesPath": "/home/worker/.nuget/packages/",
+        "outputPath": "/synthetix/new/prj-28cefab8a275/App/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/worker/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.5, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.33, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/synthetix/platform/toolchains/mise/data/installs/dotnet/8.0.428/sdk/8.0.428/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/synthetix/new/prj-28cefab8a275/tests/App.Tests/App.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/synthetix/new/prj-28cefab8a275/tests/App.Tests/App.Tests.csproj",
+        "projectName": "App.Tests",
+        "projectPath": "/synthetix/new/prj-28cefab8a275/tests/App.Tests/App.Tests.csproj",
+        "packagesPath": "/home/worker/.nuget/packages/",
+        "outputPath": "/synthetix/new/prj-28cefab8a275/tests/App.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/worker/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/synthetix/new/prj-28cefab8a275/App/App.csproj": {
+                "projectPath": "/synthetix/new/prj-28cefab8a275/App/App.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.11.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/synthetix/platform/toolchains/mise/data/installs/dotnet/8.0.428/sdk/8.0.428/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
