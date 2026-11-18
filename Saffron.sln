@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saffron.Api", "api\Saffron.Api\Saffron.Api.csproj", "{470A3427-1E1E-4832-B71F-E6C8B2BF1614}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saffron.Api.Tests", "api\Saffron.Api.Tests\Saffron.Api.Tests.csproj", "{7D6F0C01-EE1E-4B31-B623-8DE9BCAA1FFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saffron.Rules", "rules\Saffron.Rules\Saffron.Rules.csproj", "{5AF07196-267D-4632-A017-90DCA0BBD513}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saffron.Rules.Tests", "rules\Saffron.Rules.Tests\Saffron.Rules.Tests.csproj", "{A2F206DB-FE68-465A-A3C3-41788721D87B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{470A3427-1E1E-4832-B71F-E6C8B2BF1614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{470A3427-1E1E-4832-B71F-E6C8B2BF1614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{470A3427-1E1E-4832-B71F-E6C8B2BF1614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{470A3427-1E1E-4832-B71F-E6C8B2BF1614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6F0C01-EE1E-4B31-B623-8DE9BCAA1FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6F0C01-EE1E-4B31-B623-8DE9BCAA1FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6F0C01-EE1E-4B31-B623-8DE9BCAA1FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6F0C01-EE1E-4B31-B623-8DE9BCAA1FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AF07196-267D-4632-A017-90DCA0BBD513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF07196-267D-4632-A017-90DCA0BBD513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF07196-267D-4632-A017-90DCA0BBD513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF07196-267D-4632-A017-90DCA0BBD513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F206DB-FE68-465A-A3C3-41788721D87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F206DB-FE68-465A-A3C3-41788721D87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F206DB-FE68-465A-A3C3-41788721D87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F206DB-FE68-465A-A3C3-41788721D87B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
