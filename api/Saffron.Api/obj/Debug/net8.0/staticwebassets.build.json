@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NUbTcP1wMH2ISF8fEtf/PWI2eKM+wXsiuoDXnZkWaEE=",
+  "Source": "Saffron.Api",
+  "BasePath": "_content/Saffron.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
